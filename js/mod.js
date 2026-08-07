@@ -79,7 +79,7 @@ function getPointGen() {
 function addedPlayerData() { return {
 	modeID: 0,
 	modeTime: new Decimal(0),
-	x: new Decimal(0)
+	x: new Decimal(0),
 }}
 
 // Display extra information at the top of the page

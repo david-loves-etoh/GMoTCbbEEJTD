@@ -38,38 +38,37 @@ addLayer("m", {
             mult = mult.pow(player.points.div(1e100).min(player.modeTime.mul(10)).add(1))
             player.points = player.points.add(mult.mul(diff))
         }
+        if(player.modeID == 5){
+            player.points = player.points.add(CONSTS.E.pow(player.points.add(1).log2().add(1)).mul(diff))
+        }
+        if(player.modeID == 6){
+            player.x = player.x.pow(player.x.pow(new Decimal(2).pow(player.x.pow(player.x.ln()))).ln().pow(diff))
+            player.points = player.points.add(player.x.mul(diff))
+        }
     },
     clickables:{
         11:{
             display() {return "上一模式"},
-            canClick() {return true},
+            canClick() {return player.modeID},
             onClick(){
                 player.modeID--
-                player.modeTime=CONSTS.ZERO
-                player.points=CONSTS.ZERO
-                player.x=CONSTS.ZERO
-            },
-            onHold(){
-                player.modeID--
-                player.modeTime=CONSTS.ZERO
-                player.points=CONSTS.ZERO
-                player.x=CONSTS.ZERO
+                player.modeTime = CONSTS.ZERO
+                player.points = CONSTS.ZERO
+                player.x = CONSTS.ZERO
+                if(player.modeID == 6) player.x = new Decimal(2)
+                if(player.modeID == 7) player.x = CONSTS.ONE
             },
         },
         12:{
             display() {return "下一模式"},
-            canClick() {return true},
+            canClick() {return player.modeID < CONSTS.MODES_AMT},
             onClick(){
                 player.modeID++
-                player.modeTime=CONSTS.ZERO
-                player.points=CONSTS.ZERO
-                player.x=CONSTS.ZERO
-            },
-            onHold(){
-                player.modeID++
-                player.modeTime=CONSTS.ZERO
-                player.points=CONSTS.ZERO
-                player.x=CONSTS.ZERO
+                player.modeTime = CONSTS.ZERO
+                player.points = CONSTS.ZERO
+                player.x = CONSTS.ZERO
+                if(player.modeID == 6) player.x = new Decimal(2)
+                if(player.modeID == 7) player.x = CONSTS.ONE
             },
         }
     },

@@ -6,7 +6,6 @@ const MODE_INFO = [
     [5,"Challenging","#7F0019"],
     [6,"Intense","#1E3B56"],
     [7,"Remorseless","#DC00DB"],
-    [7.5,"Relentless","#4800FF"],
     [8,"Insane","#0000FF"]
 ]
 
@@ -20,4 +19,7 @@ function modeDesc(id){
     if(id == 2) return "每秒对冷牛排造成3点肉体伤害，3点精神伤害，3点真实伤害，1点即死伤害<br>有50％触发暴击，触发暴击有25％触发2重暴击，触发二重暴击有12.5％触发3重暴击……"
     if(id == 3) return "每秒对冷牛排造成e<sup>(x+80)</sup>点真实伤害<br>（x每秒增加log<sub>10</sub>(log<sub>10</sub>(d+1)+1)）"
     if(id == 4) return "每秒对冷牛排造成1点真实伤害<br>冷牛排每秒受到的伤害*10<sup>min(d/10,10t)+1</sup><br>上一条效果<sup>min(d/1e100,10t)+1</sup>"
+    if(id == 5) return "冷牛排受到的伤害每秒被执行一次x=x+e<sup>log<sub>2</sub>(x+1)+1</sup>"
+    if(id == 6) return "冷牛排每秒受到x点伤害<br>x每秒进行x=x<sup>x<sup>ln(2<sup>x<sup>ln(x)</sup></sup>)</sup></sup>"
+    if(id == 7) return "没做完。"
 }
