@@ -45,6 +45,32 @@ addLayer("m", {
             player.x = player.x.pow(player.x.pow(new Decimal(2).pow(player.x.pow(player.x.ln()))).ln().pow(diff))
             player.points = player.points.add(player.x.mul(diff))
         }
+        if(player.modeID == 7){
+            player.xEN = player.xEN.mul(new ExpantaNum(2).pow(diff))
+            player.damageEN = player.damageEN.add(CONSTS.E_EN.tetr(player.xEN))
+        }
+        if(player.modeID == 8){
+            player.xEN = player.xEN.pow(new ExpantaNum(2).pow(diff))
+            player.damageEN = player.damageEN.add(CONSTS.E_EN.tetr(player.xEN))
+        }
+        if(player.modeID == 9){
+            player.xEN = player.xEN.add(diff)
+            player.damageEN = player.damageEN.add(CONSTS.E_EN.tetr(CONSTS.E_EN.tetr(player.xEN)))
+        }
+        if(player.modeID == 10){
+            player.xEN = player.xEN.tetr(player.xEN)
+            player.damageEN = player.damageEN.add(player.xEN)
+        }
+        if(player.modeID == 11){
+            player.yEN = CONSTS.E_EN.pow(player.yEN)
+            player.xEN = player.xEN.pent(player.yEN)
+            player.damageEN = player.damageEN.add(player.xEN)
+        }
+        if(player.modeID == 12){
+            player.yEN = player.yEN.pent(player.yEN)
+            player.xEN = player.xEN.pent(player.yEN)
+            player.damageEN = player.damageEN.add(player.xEN)
+        }
     },
     clickables:{
         11:{
@@ -55,8 +81,14 @@ addLayer("m", {
                 player.modeTime = CONSTS.ZERO
                 player.points = CONSTS.ZERO
                 player.x = CONSTS.ZERO
+                player.damageEN = new ExpantaNum(0)
+                player.xEN = new ExpantaNum(0)
                 if(player.modeID == 6) player.x = new Decimal(2)
-                if(player.modeID == 7) player.x = CONSTS.ONE
+                if(player.modeID == 7) player.xEN = new ExpantaNum(2)
+                if(player.modeID == 8) player.xEN = new ExpantaNum(2)
+                if(player.modeID == 10) player.xEN = new ExpantaNum(2)
+                if(player.modeID == 11) player.xEN = new ExpantaNum(2);player.yEN = new ExpantaNum(1)
+                if(player.modeID == 12) player.xEN = new ExpantaNum(2);player.yEN = new ExpantaNum(2)
             },
         },
         12:{
@@ -67,8 +99,14 @@ addLayer("m", {
                 player.modeTime = CONSTS.ZERO
                 player.points = CONSTS.ZERO
                 player.x = CONSTS.ZERO
+                player.damageEN = new ExpantaNum(0)
+                player.xEN = new ExpantaNum(0)
                 if(player.modeID == 6) player.x = new Decimal(2)
-                if(player.modeID == 7) player.x = CONSTS.ONE
+                if(player.modeID == 7) player.xEN = new ExpantaNum(2)
+                if(player.modeID == 8) player.xEN = new ExpantaNum(2)
+                if(player.modeID == 10) player.xEN = new ExpantaNum(2)
+                if(player.modeID == 11) player.xEN = new ExpantaNum(2);player.yEN = new ExpantaNum(1)
+                if(player.modeID == 12) player.xEN = new ExpantaNum(2);player.yEN = new ExpantaNum(2)
             },
         }
     },

@@ -5,7 +5,9 @@ const CONSTS = {
     PI: new Decimal(Math.PI),
     TEN: new Decimal(10),
 
-    MODES_AMT: 8,
+    E_EN: new ExpantaNum(Math.E),
+
+    MODES_AMT: 14,
 	GUNMU: Object.create(null)
 }
 

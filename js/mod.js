@@ -8,6 +8,7 @@ let modInfo = {
 		"tree.js",
 		"custom-things/consts.js",
 		"custom-things/modes-info.js",
+		"custom-things/deduce.js",
 	],
 
 	internationalizationMod: true,
@@ -80,6 +81,10 @@ function addedPlayerData() { return {
 	modeID: 0,
 	modeTime: new Decimal(0),
 	x: new Decimal(0),
+	damageEN: new ExpantaNum(0),
+	xEN: new ExpantaNum(0),
+	yEN: new ExpantaNum(0),
+	damageMN: new MetaNum(0),
 }}
 
 // Display extra information at the top of the page
@@ -110,7 +115,7 @@ function getPointsDisplay(){
 	}
 	a += '<br>'
 	if(!(options.ch==undefined && modInfo.internationalizationMod==true)){
-		a += `<span class="overlayThing">冷牛排已受到 <h2 class="overlayThing" id="points"> ${format(player.points)}</h2> ${i18n(modInfo.pointsName, modInfo.pointsNameI18N)}</span>`
+		a += `<span class="overlayThing">冷牛排已受到 <h2 class="overlayThing" id="points"> ${deduceDamage()}</h2> ${i18n(modInfo.pointsName, modInfo.pointsNameI18N)}</span>`
 		if(canGenPoints()){
 			a += `<br><span class="overlayThing">(`+(tmp.other.oompsMag != 0 ? format(tmp.other.oomps) + " OoM" + (tmp.other.oompsMag < 0 ? "^OoM" : tmp.other.oompsMag > 1 ? "^" + tmp.other.oompsMag : "") + "s" : formatSmall(getPointGen()))+`/sec)</span>`
 		}
