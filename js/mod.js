@@ -83,8 +83,7 @@ function addedPlayerData() { return {
 	x: new Decimal(0),
 	damageEN: new ExpantaNum(0),
 	xEN: new ExpantaNum(0),
-	yEN: new ExpantaNum(0),
-	damageMN: new MetaNum(0),
+	yEN: new ExpantaNum(0)
 }}
 
 // Display extra information at the top of the page

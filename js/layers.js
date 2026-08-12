@@ -16,7 +16,7 @@ addLayer("m", {
     baseAmount() {return player.points}, // Get the current amount of baseResource
     type: "none", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
     update(diff){
-        if(player.modeTime.gte(60)) {console.log(player.points.toString());clickClickable("m",12)}
+        /*if(player.modeTime.gte(60)) {console.log(deduceDamage());clickClickable("m",12)}*/
         player.modeTime = player.modeTime.add(diff)
         if(!player.modeID) player.points = player.points.add(diff)
         if(player.modeID == 1) player.points = player.points.add(diff * 3)
@@ -42,7 +42,7 @@ addLayer("m", {
             player.points = player.points.add(CONSTS.E.pow(player.points.add(1).log2().add(1)).mul(diff))
         }
         if(player.modeID == 6){
-            player.x = player.x.pow(player.x.pow(new Decimal(2).pow(player.x.pow(player.x.ln()))).ln().pow(diff))
+            player.x = player.x.pow(player.x.pow(player.x.pow(diff)))
             player.points = player.points.add(player.x.mul(diff))
         }
         if(player.modeID == 7){
@@ -67,7 +67,7 @@ addLayer("m", {
             player.damageEN = player.damageEN.add(player.xEN)
         }
         if(player.modeID == 12){
-            player.yEN = player.yEN.pent(player.yEN)
+            player.yEN = player.yEN.pent(player.modeTime.add(1).ln().add(1).toString())
             player.xEN = player.xEN.pent(player.yEN)
             player.damageEN = player.damageEN.add(player.xEN)
         }
