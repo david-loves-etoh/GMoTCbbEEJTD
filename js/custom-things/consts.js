@@ -6,8 +6,9 @@ const CONSTS = {
     TEN: new Decimal(10),
 
     E_EN: new ExpantaNum(Math.E),
+    TEN_EN: new ExpantaNum(10),
 
-    MODES_AMT: 14,
+    MODES_AMT: 19,
 	GUNMU: Object.create(null)
 }
 

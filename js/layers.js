@@ -47,29 +47,49 @@ addLayer("m", {
         }
         if(player.modeID == 7){
             player.xEN = player.xEN.mul(new ExpantaNum(2).pow(diff))
-            player.damageEN = player.damageEN.add(CONSTS.E_EN.tetr(player.xEN))
+            player.damageEN = player.damageEN.add(CONSTS.E_EN.tetr(player.xEN).mul(diff))
         }
         if(player.modeID == 8){
             player.xEN = player.xEN.pow(new ExpantaNum(2).pow(diff))
-            player.damageEN = player.damageEN.add(CONSTS.E_EN.tetr(player.xEN))
+            player.damageEN = player.damageEN.add(CONSTS.E_EN.tetr(player.xEN).mul(diff))
         }
         if(player.modeID == 9){
             player.xEN = player.xEN.add(diff)
-            player.damageEN = player.damageEN.add(CONSTS.E_EN.tetr(CONSTS.E_EN.tetr(player.xEN)))
+            player.damageEN = player.damageEN.add(CONSTS.E_EN.tetr(CONSTS.E_EN.tetr(player.xEN)).mul(diff))
         }
         if(player.modeID == 10){
             player.xEN = player.xEN.tetr(player.xEN)
-            player.damageEN = player.damageEN.add(player.xEN)
+            player.damageEN = player.damageEN.add(player.xEN.mul(diff))
         }
         if(player.modeID == 11){
             player.yEN = CONSTS.E_EN.pow(player.yEN)
             player.xEN = player.xEN.pent(player.yEN)
-            player.damageEN = player.damageEN.add(player.xEN)
+            player.damageEN = player.damageEN.add(player.xEN.mul(diff))
         }
         if(player.modeID == 12){
             player.yEN = player.yEN.pent(player.modeTime.add(1).ln().add(1).toString())
             player.xEN = player.xEN.pent(player.yEN)
-            player.damageEN = player.damageEN.add(player.xEN)
+            player.damageEN = player.damageEN.add(player.xEN.mul(diff))
+        }
+        if(player.modeID == 13){
+            player.yEN = player.yEN.add(diff)
+            player.xEN = player.xEN.add(CONSTS.E_EN.arrow(4)(player.yEN).mul(diff))
+            player.damageEN = player.damageEN.add(player.xEN.mul(diff))
+        }
+        if(player.modeID == 14){
+            player.yEN = player.yEN.add(diff)
+            player.xEN = player.xEN.add(CONSTS.E_EN.arrow(player.yEN.sqrt().floor())(player.yEN).mul(diff))
+            player.damageEN = player.damageEN.add(player.xEN.mul(diff))
+        }
+        if(player.modeID == 15){
+            player.yEN = player.yEN.pow(player.yEN.ln().pow(diff))
+            player.xEN = player.xEN.add(CONSTS.E_EN.arrow(player.yEN.ln().floor())(player.yEN).mul(diff))
+            player.damageEN = player.damageEN.add(player.xEN.mul(diff))
+        }
+        if(player.modeID == 16){
+            player.xEN = player.xEN.add(diff)
+            console.log(formatEN(player.xEN.floor()))
+            player.damageEN = player.damageEN.add(player.xEN.floor().expansion(player.xEN.floor().add(1)).mul(diff))
         }
     },
     clickables:{
@@ -83,12 +103,15 @@ addLayer("m", {
                 player.x = CONSTS.ZERO
                 player.damageEN = new ExpantaNum(0)
                 player.xEN = new ExpantaNum(0)
+                player.yEN = new ExpantaNum(0)
                 if(player.modeID == 6) player.x = new Decimal(2)
                 if(player.modeID == 7) player.xEN = new ExpantaNum(2)
                 if(player.modeID == 8) player.xEN = new ExpantaNum(2)
                 if(player.modeID == 10) player.xEN = new ExpantaNum(2)
                 if(player.modeID == 11) player.xEN = new ExpantaNum(2);player.yEN = new ExpantaNum(1)
                 if(player.modeID == 12) player.xEN = new ExpantaNum(2);player.yEN = new ExpantaNum(2)
+                if(player.modeID == 14) player.yEN = new ExpantaNum(2)
+                if(player.modeID == 15) player.yEN = CONSTS.E_EN.pow(CONSTS.E_EN.mul(2))
             },
         },
         12:{
@@ -101,12 +124,15 @@ addLayer("m", {
                 player.x = CONSTS.ZERO
                 player.damageEN = new ExpantaNum(0)
                 player.xEN = new ExpantaNum(0)
+                player.yEN = new ExpantaNum(0)
                 if(player.modeID == 6) player.x = new Decimal(2)
                 if(player.modeID == 7) player.xEN = new ExpantaNum(2)
                 if(player.modeID == 8) player.xEN = new ExpantaNum(2)
                 if(player.modeID == 10) player.xEN = new ExpantaNum(2)
                 if(player.modeID == 11) player.xEN = new ExpantaNum(2);player.yEN = new ExpantaNum(1)
                 if(player.modeID == 12) player.xEN = new ExpantaNum(2);player.yEN = new ExpantaNum(2)
+                if(player.modeID == 14) player.yEN = new ExpantaNum(2)
+                if(player.modeID == 15) player.yEN = CONSTS.E_EN.pow(CONSTS.E_EN.mul(2))
             },
         }
     },
