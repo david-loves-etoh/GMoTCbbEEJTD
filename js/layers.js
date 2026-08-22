@@ -88,8 +88,6 @@ addLayer("m", {
         }
         if(player.modeID == 16){
             player.xEN = player.xEN.add(diff)
-            console.log(formatEN(player.xEN.floor()))
-            player.damageEN = player.damageEN.add(player.xEN.floor().expansion(player.xEN.floor().add(1)).mul(diff))
         }
     },
     clickables:{

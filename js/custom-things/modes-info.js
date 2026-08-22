@@ -21,8 +21,6 @@ const MODE_INFO = [
     [17,"WHY",undefined],
 ]
 
-const getRandomItem = (arr) => arr[Math.floor(Math.random() * arr.length)]
-
 function modeColor(id){
     if(id == 19) return getRandomItem(["#000000","#FFFFFF"])
     return MODE_INFO[id][2]
@@ -49,6 +47,6 @@ function modeDesc(id){
     if(id == 13) return "冷牛排每秒受到x点伤害<br>x每秒+e↑↑↑↑y<br>y每秒+1"
     if(id == 14) return "冷牛排每秒受到x点伤害<br>x每秒+e{√y}y<br>y每秒+1"
     if(id == 15) return "冷牛排每秒受到x点伤害<br>x每秒+e{ln(y)}y<br>y初始为e^(2e)，每秒^ln(y)"
-    if(id == 16) return "冷牛排每秒受到{x,x+1,1,2}点伤害<br>x每秒+1"
+    if(id == 16) return "冷牛排受到{10,x,1,2}点伤害<br>x每秒+1"
     return "没做完。"
 }
